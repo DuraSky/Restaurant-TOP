@@ -1,0 +1,15 @@
+{
+  "name": "restaurant-top",
+  "version": "1.0.0",
+  "description": "TOP Restaurant landing page project, working with npm and webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DuraSky",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
