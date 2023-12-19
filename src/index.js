@@ -1,49 +1,22 @@
-// create three clickable divs, home, menu, contacts
-// make home div to be default and generate content
-// on click of another div, wipe the content and append
-// new content
+import {homePage} from "./homepage.js";
+import {menuFunc} from "./menu.js";
+import { contactsFunc } from './contacts.js';
 
-const content = document.querySelector("#content");
-
-const homeDiv = document.createElement("div");
-homeDiv.classList.add("home");
-homeDiv.innerHTML = "Home";
-
-const menuDiv = document.createElement("div");
-menuDiv.classList.add("menu");
-menuDiv.innerHTML = "Menu";
-
-
-const contactsDiv = document.createElement("div");
-contactsDiv.classList.add("contacts");
-contactsDiv.innerHTML = "Contacts";
-
-
-content.appendChild(homeDiv);
-content.appendChild(menuDiv);
-content.appendChild(contactsDiv);
-
+const {homeDiv, menuDiv, contactsDiv, visibleContent, homePagePara } = homePage();
+const {menuPara} = menuFunc();
+const {contactsPara} = contactsFunc();
 
 homeDiv.addEventListener("click", ()=>{
-    const testDivHome = document.createElement("div");
-    testDivHome.classList.add("removable");
-    testDivHome.innerHTML = "Im Here";
-
-    if (content.hasChildNodes()) {
-        content.removeChild(content.children[3]);
-      }else{content.appendChild(testDivHome);}
-
-    
+    visibleContent.innerHTML ="";
+    visibleContent.appendChild(homePagePara);
 });
 
 menuDiv.addEventListener("click", ()=>{
-    const testDivContact = document.createElement("div");
-    testDivContact.innerHTML = "Im Here now too";
-    testDivContact.classList.add("removable");
-
-    if (content.hasChildNodes()) {
-        content.removeChild(content.children[3]);
-      }
-    content.appendChild(testDivContact);
+    visibleContent.innerHTML ="";
+    visibleContent.appendChild(menuPara);
 });
 
+contactsDiv.addEventListener("click", ()=>{
+  visibleContent.innerHTML ="";
+  visibleContent.appendChild(contactsPara);
+});
