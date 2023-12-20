@@ -1,6 +1,11 @@
 export const contactsFunc = function(){
-    const contactsPara = document.createElement("p");
-    contactsPara.innerHTML = "This is our contancts!";
+    const returnedDiv = document.createElement("div");
+    returnedDiv.setAttribute("id", "fromContacts");
 
-    return {contactsPara};
+    const contactsH1 = document.createElement("h1");
+    contactsH1.innerHTML = "This is our contacts!";
+
+    returnedDiv.appendChild(contactsH1);
+
+    return returnedDiv;
 }

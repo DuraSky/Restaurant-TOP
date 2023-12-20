@@ -1,22 +1,46 @@
 import {homePage} from "./homepage.js";
 import {menuFunc} from "./menu.js";
-import { contactsFunc } from './contacts.js';
+import {contactsFunc} from './contacts.js';
 
-const {homeDiv, menuDiv, contactsDiv, visibleContent, homePagePara } = homePage();
-const {menuPara} = menuFunc();
-const {contactsPara} = contactsFunc();
+const navCreation = (function(){
+  const content = document.querySelector("#content");
+  const nav = document.createElement("nav");
+  const changeContent = document.createElement("div");
+  changeContent.setAttribute("id","changeContent");
 
-homeDiv.addEventListener("click", ()=>{
-    visibleContent.innerHTML ="";
-    visibleContent.appendChild(homePagePara);
+  const homeDiv = document.createElement("div");
+  homeDiv.setAttribute("id", "navItem");
+  homeDiv.innerHTML = "Home";
+
+  const menuDiv = document.createElement("div");
+  menuDiv.setAttribute("id", "navItem");
+  menuDiv.innerHTML = "Menu";
+
+  const contactsDiv = document.createElement("div");
+  contactsDiv.setAttribute("id", "navItem");
+  contactsDiv.innerHTML = "Contacts";
+
+  content.appendChild(nav);
+  content.appendChild(changeContent);
+  changeContent.appendChild(homePage());
+  nav.appendChild(homeDiv);
+  nav.appendChild(menuDiv);
+  nav.appendChild(contactsDiv);
+
+return{homeDiv,menuDiv,contactsDiv, changeContent}
+})();
+
+navCreation.homeDiv.addEventListener("click", ()=>{
+  navCreation.changeContent.innerHTML ="";
+  navCreation.changeContent.appendChild(homePage());
 });
 
-menuDiv.addEventListener("click", ()=>{
-    visibleContent.innerHTML ="";
-    visibleContent.appendChild(menuPara);
+navCreation.menuDiv.addEventListener("click", ()=>{
+  navCreation.changeContent.innerHTML ="";
+  navCreation.changeContent.appendChild(menuFunc());
 });
 
-contactsDiv.addEventListener("click", ()=>{
-  visibleContent.innerHTML ="";
-  visibleContent.appendChild(contactsPara);
+navCreation.contactsDiv.addEventListener("click", ()=>{
+  navCreation.changeContent.innerHTML ="";
+  navCreation.changeContent.appendChild(contactsFunc());
 });
