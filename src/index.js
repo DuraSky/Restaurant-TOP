@@ -1,6 +1,8 @@
 import {homePage} from "./homepage.js";
 import {menuFunc} from "./menu.js";
 import {contactsFunc} from './contacts.js';
+import "./style.css"
+import camo from "./camo.jpg";
 
 const navCreation = (function(){
   const content = document.querySelector("#content");
@@ -10,15 +12,15 @@ const navCreation = (function(){
 
   const homeDiv = document.createElement("div");
   homeDiv.setAttribute("id", "navItem");
-  homeDiv.innerHTML = "Home";
+  homeDiv.innerHTML = "| Home |";
 
   const menuDiv = document.createElement("div");
   menuDiv.setAttribute("id", "navItem");
-  menuDiv.innerHTML = "Menu";
+  menuDiv.innerHTML = "| Menu |";
 
   const contactsDiv = document.createElement("div");
   contactsDiv.setAttribute("id", "navItem");
-  contactsDiv.innerHTML = "Contacts";
+  contactsDiv.innerHTML = "| Contacts |";
 
   content.appendChild(nav);
   content.appendChild(changeContent);
